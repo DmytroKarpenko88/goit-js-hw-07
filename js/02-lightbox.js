@@ -8,8 +8,6 @@ const galleryContainer = document.querySelector('.gallery');
 const galleryMarkup = createGalleryCards(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
-galleryContainer.addEventListener('click', onImageClick);
-
 const lightbox = new SimpleLightbox('.gallery a', {
   animationSlide: false,
   captionsData: 'alt',
@@ -28,8 +26,4 @@ function createGalleryCards(items) {
     </a> `
     )
     .join('');
-}
-
-function onImageClick(event) {
-  event.preventDefault();
 }

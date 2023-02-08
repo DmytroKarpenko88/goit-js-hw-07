@@ -30,6 +30,10 @@ function createGalleryCards(items) {
 
 function onImageClick(event) {
   event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+
   const link = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
@@ -38,9 +42,13 @@ function onImageClick(event) {
 
   instance.show();
 
-  galleryContainer.addEventListener('keydown', (event) => {
-    if (event.code === 'Escape') {
-      instance.close();
-    }
-  });
+  galleryContainer.addEventListener(
+    'keydown',
+    (event) => {
+      if (event.code === 'Escape') {
+        instance.close();
+      }
+    },
+    { once: true }
+  );
 }
