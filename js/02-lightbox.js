@@ -13,7 +13,7 @@ galleryContainer.addEventListener('click', onImageClick);
 const lightbox = new SimpleLightbox('.gallery a', {
   animationSlide: false,
   captionsData: 'alt',
-  captionDelay: 500,
+  captionDelay: 250,
 });
 
 function createGalleryCards(items) {
